@@ -1,5 +1,6 @@
 package com.arism.dto;
 
+import com.arism.model.Order;
 import lombok.Data;
 
 import java.time.LocalDateTime;
