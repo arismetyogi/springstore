@@ -1,6 +1,8 @@
 package com.arism.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +24,10 @@ public class User implements UserDetails {
     private Long id;
     private String firstName;
     private String lastName;
-    private String username;
+    @NotBlank
+    @Email
+    private String email;
+    @NotBlank
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -37,6 +42,11 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_"+role.name()));
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
     }
 
     @Override
