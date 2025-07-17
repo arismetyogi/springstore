@@ -15,7 +15,10 @@ public interface ProductMapper {
     @Mapping(target = "image", source = "image")
     Product toEntity(ProductDto productDto);
 
-
+    @Mapping(target = "userId", source = "user.id")
     CommentDto toDto(Comment comment);
+
+    @Mapping(target = "user.id", source = "userId")
+    @Mapping(target = "product", ignore = true)
     Comment toEntity(CommentDto commentDto);
 }
