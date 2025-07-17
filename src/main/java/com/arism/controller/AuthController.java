@@ -1,5 +1,6 @@
 package com.arism.controller;
 
+import com.arism.dto.ChangePasswordRequest;
 import com.arism.dto.LoginRequest;
 import com.arism.model.User;
 import com.arism.service.JwtService;
@@ -9,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,5 +40,13 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<User> register(@Valid @RequestBody User user) {
         return ResponseEntity.ok(userService.registerUser(user));
+    }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<?> changePassword(@Valid @RequestBody ChangePasswordRequest request) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        userService.changePassword(email, request);
+        return ResponseEntity.ok().body("Password Changed Successfully");
     }
 }
