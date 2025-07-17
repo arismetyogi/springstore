@@ -16,10 +16,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Content is required")
     private String content;
-    @Min(value = 1)
-    @Max(value = 5)
     private Integer score;
 
     @ManyToOne
