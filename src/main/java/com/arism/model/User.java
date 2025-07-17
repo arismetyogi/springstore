@@ -23,10 +23,12 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Name is required")
+    private String name;
+    @NotBlank(message = "Email is required")
     @Email
     private String email;
-    @NotBlank
+    @NotBlank(message = "Password cannot be blank")
     private String password;
 
     @Enumerated(EnumType.STRING)
