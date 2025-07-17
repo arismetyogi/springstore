@@ -21,6 +21,7 @@ public class Product {
     private String description;
     private BigDecimal price;
     private Integer quantity;
+    private String image; // adding image to product
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
