@@ -3,7 +3,7 @@ package com.arism.service;
 import com.arism.exception.ResourceNotFoundException;
 import com.arism.model.User;
 import com.arism.repository.UserRepository;
-import com.arism.request.ChangePasswordRequest;
+import com.arism.dto.ChangePasswordRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;

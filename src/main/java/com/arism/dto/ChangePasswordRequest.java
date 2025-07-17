@@ -1,4 +1,4 @@
-package com.arism.request;
+package com.arism.dto;
 
 import lombok.Data;
 
