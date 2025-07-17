@@ -13,22 +13,22 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
-    @Mapping(target = "userId", source = "user.id")
-    @Mapping(target = "orderItems", source = "items") // based on the properties set on model/dto
-    OrderDto toDto(Order order);
-
-    @Mapping(target = "user.id", source = "userId")
-    @Mapping(target = "items", source = "orderItems")
-    Order toEntity(OrderDto orderDto);
-
-    List<OrderDto> toDto(List<Order> orders);
-    List<Order> toEntity(List<OrderDto> orderDtos);
-
-    @Mapping(target = "productId", source = "product.id")
-    OrderItemDto toDto(OrderItem orderItem);
-    @Mapping(target = "product.id", source = "productId")
-    OrderItem toEntity(OrderItemDto orderItemDto);
-
-    List<OrderItemDto> toDtos(List<OrderItem> orderItems);
-    List<OrderItem> toEntities(List<OrderItemDto> orderItemDtos);
+//    @Mapping(target = "userId", source = "user.id")
+//    @Mapping(target = "orderItems", source = "items") // based on the properties set on model/dto
+//    OrderDto toDto(Order order);
+//
+//    @Mapping(target = "user.id", source = "userId")
+//    @Mapping(target = "items", source = "orderItems")
+//    Order toEntity(OrderDto orderDto);
+//
+//    List<OrderDto> toDto(List<Order> orders);
+//    List<Order> toEntity(List<OrderDto> orderDtos);
+//
+//    @Mapping(target = "productId", source = "product.id")
+//    OrderItemDto toDto(OrderItem orderItem);
+//    @Mapping(target = "product.id", source = "productId")
+//    OrderItem toEntity(OrderItemDto orderItemDto);
+//
+//    List<OrderItemDto> toDtos(List<OrderItem> orderItems);
+//    List<OrderItem> toEntities(List<OrderItemDto> orderItemDtos);
 }

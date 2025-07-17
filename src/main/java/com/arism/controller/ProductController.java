@@ -21,7 +21,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasRole(ADMIN)")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ProductDto> createProduct(
             @RequestPart(value = "product") @Valid ProductDto productDto,
             @RequestPart(value = "image", required = false) MultipartFile image ) throws IOException {
@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasRole(ADMIN)")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ProductDto> updateProduct(@PathVariable Long id,
                                                     @RequestPart(value = "product") @Valid ProductDto productDto,
                                                     @RequestPart(value = "image", required = false) MultipartFile image) throws IOException {
@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @DeleteMapping(value = "/{id}")
-    @PreAuthorize("hasRole(ADMIN)")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) throws IOException {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
