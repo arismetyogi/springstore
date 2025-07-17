@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "carts") // avoid error on table name (reserved name)
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

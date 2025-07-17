@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "comments") // avoid error on table name (reserved name)
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

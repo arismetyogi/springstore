@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "cart_items") // avoid error on table name (reserved name)
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
