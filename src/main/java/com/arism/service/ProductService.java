@@ -1,6 +1,7 @@
 package com.arism.service;
 
 import com.arism.dto.ProductDto;
+import com.arism.dto.ProductListDto;
 import com.arism.exception.ResourceNotFoundException;
 import com.arism.mapper.ProductMapper;
 import com.arism.model.Product;
@@ -67,7 +68,7 @@ public class ProductService {
         return productMapper.toDto(product);
     }
 
-    public List<ProductDto> getAllProducts() {
+    public List<ProductListDto> getAllProducts() {
         return productRepository.findAllWithoutComments();
     }
 
