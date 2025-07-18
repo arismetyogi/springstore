@@ -13,22 +13,24 @@ This project is a backend RESTful API built with **Spring Boot** for managing us
 - **Postman** (for API testing)
 - **Docker (optional)** – for DB and deployment
 - **Lombok Plugin** enabled in your IDE
+- **Open API WebMVC** with swagger-ui
 
 ---
 
 ## 🧰 Stack Used
 
-| Layer         | Technology                         |
-|--------------|------------------------------------|
-| Language      | Java 24                            |
-| Framework     | Spring Boot 3.5.3                  |
-| Auth          | Spring Security + JWT              |
-| Data Access   | Spring Data JPA                    |
-| DB            | PostgreSQL (configurable)          |
-| Build Tool    | Maven                              |
-| Validation    | Jakarta Bean Validation            |
-| Uploads       | Multipart/Form-Data (image upload) |
-| Testing       | JUnit 5, Mockito                   |
+| Layer             | Technology                         |
+|-------------------|------------------------------------|
+| Language          | Java 24                            |
+| Framework         | Spring Boot 3.5.3                  |
+| Auth              | Spring Security + JWT              |
+| Data Access       | Spring Data JPA                    |
+| DB                | PostgreSQL (configurable)          |
+| Build Tool        | Maven                              |
+| Validation        | Jakarta Bean Validation            |
+| Uploads           | Multipart/Form-Data (image upload) |
+| Testing           | JUnit 5, Mockito                   |
+| API Documentation | Swagger-UI                         |
 
 ---
 
