@@ -28,7 +28,7 @@ jobs:
           cache: 'maven'
 
       - name: ⚙️ Build with Maven (skip tests)
-        run: mvn -B clean package --Dskiptests
+        run: mvn -B clean package -D skiptest
 
       - name: 🧪 Run Tests
         run: mvn test || true
