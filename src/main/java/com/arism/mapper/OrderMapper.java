@@ -13,6 +13,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
+    // Methods to convert Order DTO onject into Order model object and vice-versa
     @Mapping(target = "userId", source = "user.id")
     @Mapping(target = "orderItems", source = "items") // based on the properties set on model/dto
     OrderDto toDto(Order order);
@@ -24,6 +25,7 @@ public interface OrderMapper {
     List<OrderDto> toDtos(List<Order> orders);
     List<Order> toEntitys(List<OrderDto> orderDtos);
 
+    // Methods to convert OrderItem DTO onject into OrderItem model object and vice-versa
     @Mapping(target = "productId", source = "product.id")
     OrderItemDto toDto(OrderItem orderItem);
     @Mapping(target = "product.id", source = "productId")

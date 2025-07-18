@@ -10,6 +10,8 @@ import org.mapstruct.MappingConstants;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ProductMapper {
+
+    // Methods to convert Product DTO onject into Product model object and vice-versa
     @Mapping(target = "image", source = "image") //add mapping
     ProductDto toDto(Product product);
 

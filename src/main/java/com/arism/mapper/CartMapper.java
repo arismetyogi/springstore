@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface CartMapper {
+    // Methods to convert Cart DTO onject into Cart model object and vice-versa
     @Mapping(target = "userId", source = "user.id")
     CartDto toDto(Cart cart);
 

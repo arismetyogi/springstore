@@ -23,6 +23,7 @@ public class Order {
     private OrderStatus status;
     private LocalDateTime createdAt;
 
+    // Relationships
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -30,6 +31,7 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();
 
+    // Order Status enums
     public enum OrderStatus {
         PREPARING, DELIVERING, DELIVERED, CANCELED
     }

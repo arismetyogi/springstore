@@ -32,6 +32,8 @@ public class AuthController {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
+        // Unauthenticated user can login into the service by providing their email and password
+        // the authentication service then give the user JWT token to validate their session
         final UserDetails userDetails = userService.getUserByEmail(request.getEmail());
         final String jwtToken = jwtService.generateToken(userDetails);
 
@@ -40,12 +42,15 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@Valid @RequestBody User user) {
+        // Anauthenticated user can register to the service by providing their required user details
         return ResponseEntity.ok(userService.registerUser(user));
     }
 
     @PostMapping("/change-password")
     @PreAuthorize("isAuthenticated()")
     public ResponseEntity<?> changePassword(@Valid @RequestBody ChangePasswordRequest request) {
+        // Authenticated user can change their password by providing their existing password and new password
+        // then the user getting their password validated
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
         userService.changePassword(email, request);

@@ -24,6 +24,7 @@ public class Product {
     private Integer quantity;
     private String image; // adding image to product
 
+    // Relationships
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 }

@@ -20,6 +20,7 @@ public class Comment {
     private String content;
     private Integer score;
 
+    // Relationships
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;

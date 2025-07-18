@@ -29,6 +29,8 @@ public class CartController {
     public ResponseEntity<CartDto> addToCart(@AuthenticationPrincipal UserDetails userDetails,
                                              @RequestParam Long productId,
                                              @RequestParam Integer quantity) throws InsufficientStockException {
+        // Authenticated user can add item/product to their cart by providing the product id and quantity
+        // Then its get peristed on DB with their detail
         Long userId = ((User) userDetails).getId();
         return ResponseEntity.ok(cartService.addToCart(userId, productId, quantity));
     }
@@ -36,12 +38,15 @@ public class CartController {
     @GetMapping
     @PreAuthorize("isAuthenticated()")
     public ResponseEntity<CartDto> getCart(@AuthenticationPrincipal UserDetails userDetails) {
+        // Authenticated user can view their cart and its items
         Long userId = ((User) userDetails).getId();
         return ResponseEntity.ok(cartService.getCart(userId));
     }
 
     @DeleteMapping
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<Void> clearCart(@AuthenticationPrincipal UserDetails userDetails) {
+        // Authenticated user can clear their own cart
         Long userId = ((User) userDetails).getId();
         cartService.clearCart(userId);
         return ResponseEntity.noContent().build();

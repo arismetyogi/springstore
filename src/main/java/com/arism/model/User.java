@@ -34,6 +34,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    // Relationships
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
@@ -45,6 +46,7 @@ public class User implements UserDetails {
         return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
+    // Authentication properties
     @Override
     public String getUsername() {
         return email;
@@ -70,6 +72,7 @@ public class User implements UserDetails {
         return UserDetails.super.isEnabled();
     }
 
+    // Role enums for user role
     public enum Role {
         USER, ADMIN
     }

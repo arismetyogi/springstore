@@ -25,6 +25,8 @@ public class ProductController {
     public ResponseEntity<ProductDto> createProduct(
             @RequestPart(value = "product") @Valid ProductDto productDto,
             @RequestPart(value = "image", required = false) MultipartFile image ) throws IOException {
+        // Here, the user (with ADMIN role) can post Product in ProductDto object,
+        // then productService process the ProductDto into Product object to persist in the DB
         return ResponseEntity.ok(productService.createProduct(productDto, image));
     }
 
@@ -33,23 +35,28 @@ public class ProductController {
     public ResponseEntity<ProductDto> updateProduct(@PathVariable Long id,
                                                     @RequestPart(value = "product") @Valid ProductDto productDto,
                                                     @RequestPart(value = "image", required = false) MultipartFile image) throws IOException {
+        // The ADMIN user can update product by sending ProductDto object with image as optional
+        // then productService process and persist it into DB
         return ResponseEntity.ok(productService.updateProduct(id, productDto, image));
     }
 
     @DeleteMapping(value = "/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) throws IOException {
+        // ADMIN User can delete product by providing product id, returning no Content response
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDto> getProduct(@PathVariable Long id) {
+        // this endpoint can be accessed publicly without authentication by providing the id of the product
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<ProductListDto>> getAllProducts() {
+        // Also unauthenticated user can access all products
         return ResponseEntity.ok(productService.getAllProducts());
     }
 }
