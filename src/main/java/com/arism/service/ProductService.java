@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -73,7 +75,8 @@ public class ProductService {
     }
 
     public String saveImage(MultipartFile image) throws IOException {
-        String fileName = UUID.randomUUID().toString()+image.getOriginalFilename();
+        String fileName = LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + "-" + image.getOriginalFilename();
         Path path = Paths.get(UPLOAD_DIR+fileName);
         Files.createDirectories(path.getParent());
 
