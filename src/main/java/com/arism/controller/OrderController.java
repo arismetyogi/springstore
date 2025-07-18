@@ -49,7 +49,7 @@ public class OrderController {
     @PutMapping("/{orderId}/status")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<OrderDto> getOrdersByUser(@PathVariable Long orderId,
-                                                          @RequestParam Order.OrderStatus status) {
+                                                    @RequestParam Order.OrderStatus status) {
         OrderDto updatedOrder = orderService.updateOrderStatus(orderId, status);
         return ResponseEntity.ok(updatedOrder);
     }

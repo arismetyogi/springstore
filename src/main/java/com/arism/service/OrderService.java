@@ -56,7 +56,7 @@ public class OrderService {
         Order savedOrder = orderRepository.save(order);
         cartService.clearCart(userId);
 
-        log.info("Order has been created with items: {}", orderItems);
+        log.info("Order has been created with id: {}", savedOrder.getId());
 
         return orderMapper.toDto(savedOrder);
     }
