@@ -53,6 +53,15 @@ This project is a backend RESTful API built with **Spring Boot** for managing us
 
 ---
 
+## API Documentation
+Swagger UI can be accessed on <br>
+`{{base_uri}}/swagger-ui/index.html`
+
+## Commands
+
+- `mvn -B clean package` : for building the app and test, or add `-D skiptest` to skip tests when building the app
+- `mvn test` : to run all testings
+
 ## 🛠️ API Endpoints
 
 ### 🧑‍💼 Auth
