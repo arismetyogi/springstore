@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.arism.model")
-//@ComponentScan(basePackages = "com.arism.mapper")
 @EnableJpaRepositories(basePackages = "com.arism.repository")
 public class SpringstoreApplication {
 
