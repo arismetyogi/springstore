@@ -116,8 +116,8 @@ server.port=8081
 
 # Database Config
 spring.datasource.url=jdbc:postgresql://localhost:5432/springstore_db
-spring.datasource.username=postgres
-spring.datasource.password=postgres
+spring.datasource.username=yourDBusername
+spring.datasource.password=yourDBpassword
 
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.hibernate.ddl-auto=update
