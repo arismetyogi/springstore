@@ -32,7 +32,7 @@ public class CartService {
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
         if (product.getQuantity() < quantity) {
-            throw new InsufficientStockException("Not enough stock available for item %s.", product.getName());
+            throw new InsufficientStockException("Not enough stock available for item: "+ product.getName());
         }
 
         Cart cart = cartRepository.findByUserId(userId)
