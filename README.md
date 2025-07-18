@@ -21,7 +21,7 @@ This project is a backend RESTful API built with **Spring Boot** for managing us
 
 | Layer             | Technology                         |
 |-------------------|------------------------------------|
-| Language          | Java 24                            |
+| Language          | Java 21                            |
 | Framework         | Spring Boot 3.5.3                  |
 | Auth              | Spring Security + JWT              |
 | Data Access       | Spring Data JPA                    |
