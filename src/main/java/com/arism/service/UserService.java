@@ -15,7 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-//    Register User
+    // Register User
     public User registerUser(User user) {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new IllegalStateException("User already exists");
@@ -26,8 +26,9 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    // Get user object by email
     public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email).orElseThrow(()-> new ResourceNotFoundException("User not found"));
+        return userRepository.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("User not found"));
     }
 
     public void changePassword(String email, ChangePasswordRequest request) {
