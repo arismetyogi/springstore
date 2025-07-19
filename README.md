@@ -62,6 +62,13 @@ Swagger UI can be accessed on <br>
 - `mvn -B clean package` : for building the app and test, or add `-D skiptest` to skip tests when building the app
 - `mvn test` : to run all testings
 
+## Dockerized App
+You can run this app on your docker desktop by running this command from the app's root directory:
+- `docker compose up -d` : run in detached mode on docker
+- `docker-ps` : check the running images
+- `docker logs springstore-cont` : view logs of the dockerized app
+- `docker compose down` : stop the running container
+
 ## 🛠️ API Endpoints
 
 ### 🧑‍💼 Auth
