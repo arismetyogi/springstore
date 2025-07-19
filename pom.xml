@@ -123,11 +123,11 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</path>
-						<annotationProcessorPath>
+						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>
 							<version>1.5.5.Final</version> <!-- or your current MapStruct version -->
-						</annotationProcessorPath>
+						</path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
