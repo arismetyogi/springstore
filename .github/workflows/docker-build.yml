@@ -35,7 +35,7 @@ jobs:
           java-version: 21
 
       - name: Build with Maven
-        run: ./mvnw clean package -D skiptest
+        run: ./mvnw -B clean package -D skiptest
 
       - name: Build Docker image
         run: docker build -t springstore:latest .
