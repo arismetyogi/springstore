@@ -34,8 +34,11 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      - name: Make mvnw executable
+        run: chmod +x ./mvnw
+
       - name: Build with Maven
-        run: ./mvnw -B clean package -D skiptest
+        run: sudo ./mvnw -B clean package -D skiptest
 
       - name: Build Docker image
         run: docker build -t springstore:latest .
