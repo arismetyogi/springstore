@@ -33,6 +33,13 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+          cache: maven
+
+      - name: Show Java version
+        run: java --version
+
+      - name: Show Maven version
+        run: mvn -v
 
       - name: Make mvnw executable
         run: chmod +x ./mvnw
