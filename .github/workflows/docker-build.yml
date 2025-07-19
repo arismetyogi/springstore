@@ -64,12 +64,6 @@ jobs:
             -e SPRING_DATASOURCE_USERNAME=postgres \
             -e SPRING_DATASOURCE_PASSWORD=postgres \
             springstore:latest
-          
-#           Wait a bit for the app to start
           sleep 30
-          
-          # Check if container is still running
           docker ps | grep springstore-test || echo "Container stopped"
-          
-          # Stop the test container
           docker stop springstore-test || true
